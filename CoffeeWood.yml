@@ -1,0 +1,10 @@
+coffeewood:
+  - src-path:           "/src"
+  - bin-path:           "/bin"
+  - src-cache-path:     "/src/cache"
+  - src-temp-path:      "/src/tmp"
+  - src-compat-path:    "/src/compat"
+
+  sh:
+    - sh_files: "/**.sh"
+    
