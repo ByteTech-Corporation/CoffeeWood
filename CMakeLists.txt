@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.10 FATAL_ERROR)
 project(CoffeeWood_CWPL)
-add_executable(src/lib.cpp)
+add_executable(src/library/*)
 add_library(CWPL_Lib src/lib.cpp)
 set_target_properties(MyLib PROPERTIES VERSION "0.0")
 install(TARGETS CoffeeWood_CWPL MyLib DESTINATION bin/)
