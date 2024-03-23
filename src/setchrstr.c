@@ -1,3 +1,4 @@
+// string related script
 // Helper function prototypes
 void setChrStr(char*, size_t, const char*, const char*);
 void parseHexByte(const char**, size_t*, uint8_t*);
