@@ -1,0 +1,17 @@
+cmake_minimum_required(VERSION 3.10 FATAL_ERROR)
+project(CoffeeWood_CWPL)
+add_executable(src/lib.cpp)
+add_library(CWPL_Lib src/lib.cpp)
+set_target_properties(MyLib PROPERTIES VERSION "0.0")
+install(TARGETS CoffeeWood_CWPL MyLib DESTINATION bin/)
+file(GLOB COFFEEWOOD_SOURCES "*src/*.cxx*.cpp*.hpp*.h*)
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_BUILD_TYPE Release)
+
+foreach(_source ${COFFEEWOOD_SOURCES})
+    list(REMOVE_ITEM COFFEEWOOD_SOURCES ${_source})
+    add_custom_command(ALL TARGET CoffeeWood_CWPL PRECOMPILE_SOURCE ${_source})
+endforeach()
+
+install(FILES src/${PROJECT_NAME}.pro DESTINATION share/qtcreator/)
