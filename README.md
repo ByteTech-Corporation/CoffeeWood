@@ -1,4 +1,12 @@
 # CoffeeWood
+
+  ![cwpl_logo](https://github.com/ByteTech-Corporation/CoffeeWood/assets/111024718/0f5850ea-9977-433c-befb-2c2183bd7d86)
+
+
+
+
+
+
 CoffeeWood is a programming language coded in Java & C++ and C. This programming language is made for ***adults*** and ***kids***. It works with Android and MacOS and Windows and last but not least Unix/Linux.
 
 CoffeeWood is a simple compiled language. It is compiled when you run the compiler along with your .cw script. Example Compiler syntax (command-line):
