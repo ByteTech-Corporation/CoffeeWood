@@ -26,23 +26,3 @@ jobs:
           push: false
           tags: myusername/myimage:${{ github.sha }}
 
-      # Run tests
-      - name: Test
-        uses: actions/setup-node@v1
-        with:
-          node-version: '14.17.3'
-
-        steps:
-          - name: Install dependencies
-            run: npm install
-
-          - name: Lint code
-            run: npx eslint --ext .js,.ts .
-
-          - name: Run tests
-            run: npm test
-          - name: Lint code
-            run: npx eslint --ext .js,.ts .
-
-          - name: Run tests
-            run: npm test
