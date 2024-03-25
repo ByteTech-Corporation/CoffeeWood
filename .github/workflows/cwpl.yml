@@ -1,0 +1,61 @@
+name: CI Workflow
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout repository
+      - uses: actions/checkout@v2
+
+      # Set up CWPL
+      - name: Setup CWPL
+        uses: actions/checkout@v1
+        with:
+          channel: stable
+          use: 1.18.0
+
+      # Cache Docker layers for faster builds
+      - name: Cache Data
+        uses: actions/cache@v2
+        path: |
+          ${{ runner.workspace}}/.github/layers
+          /usr/src/app/node_modules
+        key: ${{ runner.os }}-layers-${{ hashFiles('*') }}
+        restore-keys: true
+
+      # Build image
+      - name: Build Image
+        env:
+          DOCKER_DRIVER: overlay2
+        uses: actions/build-push-image@v2
+        with:
+          context: .
+          push: false
+          tags: myusername/myimage:${{ github.sha }}
+
+      # Run tests
+      - name: Test
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14.17.3'
+
+        steps:
+          - name: Install dependencies
+            run: npm install
+
+          - name: Lint code
+            run: npx eslint --ext .js,.ts .
+
+          - name: Run tests
+            run: npm test
+
+      # Deploy to Production (optional)
+      - name: Deploy
+        needs: test
+        uses: actions/deploy-pages@v1
+        with:
+          branch: main
+          personal_token: ${{ secrets.GITHUB_TOKEN }}
+          folder: ./public
