@@ -16,13 +16,4 @@ jobs:
           channel: stable
           use: 1.18.0
 
-      # Build image
-      - name: Build Image
-        env:
-          DOCKER_DRIVER: overlay2
-        uses: actions/build-push-image@v2
-        with:
-          context: .
-          push: false
-          tags: myusername/myimage:${{ github.sha }}
 
