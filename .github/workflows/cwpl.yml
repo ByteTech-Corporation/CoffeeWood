@@ -16,15 +16,6 @@ jobs:
           channel: stable
           use: 1.18.0
 
-      # Cache Docker layers for faster builds
-      - name: Cache Data
-        uses: actions/cache@v2
-        path: |
-          ${{ runner.workspace}}/.github/layers
-          /usr/src/app/node_modules
-        key: ${{ runner.os }}-layers-${{ hashFiles('*') }}
-        restore-keys: true
-
       # Build image
       - name: Build Image
         env:
@@ -50,12 +41,3 @@ jobs:
 
           - name: Run tests
             run: npm test
-
-      # Deploy to Production (optional)
-      - name: Deploy
-        needs: test
-        uses: actions/deploy-pages@v1
-        with:
-          branch: main
-          personal_token: ${{ secrets.GITHUB_TOKEN }}
-          folder: ./public
