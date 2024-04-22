@@ -31,9 +31,9 @@ void parseHexByte(const char** strPtr, size_t* bytesRead, uint8_t* hexByte) {
 }
 
 // Initialize colors
-static ColorRGB defaultFgColor = { .r=15, .g=15, .b=15 };
-static ColorRGB defaultBgColor = { .r=0,   .g=0,   .b=0 };
-static ColorRGB blackFgColor =   { .r=0,   .g=0,   .b=0 };
+static ColorRGB defaultFgColor =    { .r=15, .g=15, .b=15 };
+static ColorRGB defaultBgColor =   { .r=0,   .g=0,   .b=0 };
+static ColorRGB blackFgColor   =   { .r=0,   .g=0,   .b=0 };
 static ColorRGB redFgColor     =   { .r=255, .g=0,   .b=0 };
 static ColorRGB greenFgColor   =   { .r=0,   .g=255, .b=0 };
 static ColorRGB yellowFgColor  =   { .r=255, .g=255, .b=0 };
@@ -43,7 +43,7 @@ static ColorRGB cyanFgColor    =   { .r=0,   .g=255, .b=255 };
 static ColorRGB whiteFgColor   =   { .r=255, .g=255, .b=255 };
 static ColorRGB grayFgColor    =   { .r=192, .g=192, .b=192 };
 
-static ColorRGB blackBgColor =   { .r=0,   .g=0,   .b=0 };
+static ColorRGB blackBgColor   =   { .r=0,   .g=0,   .b=0 };
 static ColorRGB redBgColor     =   { .r=255, .g=0,   .b=0 };
 static ColorRGB greenBgColor   =   { .r=0,   .g=255, .b=0 };
 static ColorRGB yellowBgColor  =   { .r=255, .g=255, .b=0 };
